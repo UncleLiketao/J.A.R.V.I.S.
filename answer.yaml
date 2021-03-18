@@ -1,0 +1,6 @@
+adb指令集:
+ keyword: adb
+ replay: https://github.com/mzlogin/awesome-adb
+ skill: NA
+ skill-type: cmd
+ skill-content: dumpsys packages | grep version
