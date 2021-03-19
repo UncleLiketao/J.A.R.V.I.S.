@@ -1,2 +1,2 @@
-# J.A.R.V.I.S.
+# YiYi
 Just Another Rather Very Intelligent System
