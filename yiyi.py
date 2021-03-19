@@ -1,4 +1,6 @@
 import os
+import re
+import webbrowser
 from yaml_tool import get_yaml_data
 
 current_path = os.path.abspath(".")
@@ -18,17 +20,44 @@ class YiYi(object):
         return question
 
     def _use_skill(self, skill_type, skill_content):
-        pass
+        if skill_type == 'open_browser':
+            webbrowser.open(skill_content)
+
+    def _fuzzy_finder(self, keyword, data):
+        """
+        模糊查找器
+        :param keyword: 关键字
+        :param data: 数据
+        :return: list
+        """
+        suggestions = []
+        pattern = '.*%s.' % keyword
+        regex = re.compile(pattern)
+        for item in data:
+            match = regex.search(item({'keyword'}))
+            if match:
+                suggestions.append(item)
+        return suggestions
 
     def _find_anwser(self, question):
         anwser_data = get_yaml_data(yaml_path)
         for k in anwser_data:
-            print(k)
+            if not question:
+                print("没有检测到输出内容")
+            elif question in k:
+                print("你要找的是不是：{answer_keyword}\nreply:{reply_content}".format(answer_keyword=k,
+                                                                                reply_content=anwser_data[k]['reply']))
+                self._use_skill(anwser_data[k]['skill_type'], anwser_data[k]['skill_content'])
+                break
+            else:
+                print("没有找到相关内容")
 
     def main(self):
         question = self._prologue()
-        print(question)
+        self._find_anwser(question)
 
 
 if __name__=='__main__':
-    YiYi().main()
+    # YiYi().main()
+    anwser_data = get_yaml_data(yaml_path)
+    YiYi()._fuzzy_finder('原神',anwser_data)
