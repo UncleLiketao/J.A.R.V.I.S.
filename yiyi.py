@@ -1,7 +1,8 @@
+# coding=utf-8
 import os
 import re
 import webbrowser
-from yaml_tool import get_yaml_data
+from Utils.yaml_tool import get_yaml_data
 
 current_path = os.path.abspath(".")
 yaml_path = os.path.join(current_path, "answer.yaml")
@@ -44,13 +45,13 @@ class YiYi(object):
         for k in anwser_data:
             if not question:
                 print("没有检测到输出内容")
+                break
             elif question in k:
                 print("你要找的是不是：{answer_keyword}\nreply:{reply_content}".format(answer_keyword=k,
                                                                                 reply_content=anwser_data[k]['reply']))
                 self._use_skill(anwser_data[k]['skill_type'], anwser_data[k]['skill_content'])
                 break
-            else:
-                print("没有找到相关内容")
+
 
     def main(self):
         question = self._prologue()
@@ -58,6 +59,5 @@ class YiYi(object):
 
 
 if __name__=='__main__':
-    # YiYi().main()
-    anwser_data = get_yaml_data(yaml_path)
-    YiYi()._fuzzy_finder('原神',anwser_data)
+    YiYi().main()
+
