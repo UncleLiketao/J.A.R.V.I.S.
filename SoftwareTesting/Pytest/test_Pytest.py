@@ -6,9 +6,9 @@ import pytest
 
 class Test_Pytest():
 
+    @pytest.mark.xfail
     def test_one(self, ):
         print("----start------")
-        pytest.xfail(reason='该功能尚未完成')
         print("test_one方法执行")
         assert 1 == 1
 
