@@ -1,0 +1,5 @@
+setup.py
+bc2.egg-info/PKG-INFO
+bc2.egg-info/SOURCES.txt
+bc2.egg-info/dependency_links.txt
+bc2.egg-info/top_level.txt

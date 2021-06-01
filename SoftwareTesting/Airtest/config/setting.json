@@ -1,0 +1,20 @@
+{
+  "packageName": "com.ipreto.android.doomsdaylastsurvivors",
+  "upr": {
+    "PROJECT_ID=": "",
+    "SessionPath": "session.txt",
+    "API_ENDPOINT": "https://upr.unity.cn/open-api",
+    "Uprconfig": "uprConfig.json"
+  },
+  "igg_chat_url": "http://im-api.skyunion.net/msg",
+  "Send_Channel": "",
+  "win": {
+    "execcmd": "\\tool\\UnityPerProfiler\\UPRDesktop.exe ",
+    "adbpath": "\\tool\\adb\\adb.exe ",
+    "airtest": "\\tool\\airtest\\airtest.exe"
+  },
+  "ios": {
+    "execcmd": "/UnityPerProfiler/UnityPerfProfiler ",
+    "adbpath": "/adb/adb "
+  }
+}
